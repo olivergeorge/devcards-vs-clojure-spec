@@ -23,6 +23,7 @@ Hot air + prototype.
 http://clojure.org/about/spec
 https://juxt.pro/blog/posts/generative-ui-clojure-spec.html
 https://github.com/bhauman/devcards/issues/112
+https://gist.github.com/olivergeorge/82a20dd03fd86e82ab9b0f3959590f3f
 
 
 ## Usage
