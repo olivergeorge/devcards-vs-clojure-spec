@@ -43,17 +43,19 @@
   (let [[args ret] (sampler {:seed seed :size size :overrides overrides})]
     (sab/html
       [:div
-       [:div
-        [:b "Seed " seed]
-        [:button {:on-click #(change-seed (inc seed))} "+"]
-        [:button {:on-click #(change-seed (dec seed))} "-"]
-        [:b "Size "]
-        [:span [:input {:type      "range"
-                        :min       0
-                        :max       100
-                        :value     size
-                        :on-change #(change-size (.-target.value %))}]
-         size]]
+       [:div.form-inline
+        [:div.form-group
+         [:label "Seed " seed]
+         [:button.btn.btn-sm {:on-click #(change-seed (inc seed))} "+"]
+         [:button.btn.btn-sm {:on-click #(change-seed (dec seed))} "-"]]
+        [:div.form-group
+         [:label "Size " size]
+         [:input.form-control
+          {:type      "range"
+           :min       0
+           :max       100
+           :value     size
+           :on-change #(change-size (.-target.value %))}]]]
        [:div
         [:div ret]
         [:hr]
