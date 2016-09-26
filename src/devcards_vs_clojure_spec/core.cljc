@@ -29,3 +29,38 @@
           fspec (clojure.spec/get-spec f-sym)]
       (assert fspec (str "No spec defined for " f-sym))
       (sample-fn* f fspec opts))))
+
+(comment
+
+  (require '[clojure.spec.test :as stest])
+  (require '[devcards-vs-clojure-spec.core-specs])
+  (stest/instrument)
+
+  (defn my-table
+    ([rows]
+     (my-table (distinct (mapcat keys rows)) rows))
+    ([ks rows]
+     [:table.table
+      [:thead [:tr (for [k ks]
+                     [:th (name k)])]]
+      [:tbody (for [row rows]
+                [:tr (for [k ks]
+                       [:td (get row k "-")])])]]))
+
+  (s/def ::col-key keyword?)
+  (s/fdef my-table
+          :args (s/cat :keys (s/coll-of ::col-key)
+                       :rows (s/coll-of (s/map-of ::col-key string?))))
+
+  (build-sampler-fn #'my-table)
+
+  (let [sampler (build-sampler-fn #'my-table)]
+    (sampler {:seed 1 :size 1}))
+
+  (let [sampler (build-sampler-fn #'my-table)]
+    (= (sampler {:seed 1 :size 1})
+       (sampler {:seed 1 :size 1})))
+
+  (let [sampler (build-sampler-fn #'my-table)]
+    (= (sampler {:seed 1 :size 1})
+       (sampler {:seed 2 :size 1}))))
