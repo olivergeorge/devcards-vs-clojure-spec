@@ -15,7 +15,7 @@ Tools to automatically generate useful devcards from view specs.
 
 ## Status
 
-Hot air + prototype.
+First code pushed.  Very little input or testing.  Treat as alpha.
 
 
 ## Prior art / related links
