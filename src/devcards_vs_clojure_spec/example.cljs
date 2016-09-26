@@ -15,9 +15,10 @@
                    [:th (name k)])]]
     [:tbody (for [row rows]
               [:tr (for [k ks]
-                     [:td (get row k "-")])])]])
+                     [:td (get row k "-")])])]]))
 
-  (s/def ::col-key keyword?))
+(s/def ::col-key keyword?)
+
 (s/fdef my-table
   :args (s/cat :keys (s/? (s/coll-of ::col-key))
                :rows (s/coll-of (s/map-of ::col-key string?))))
