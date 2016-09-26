@@ -8,7 +8,7 @@ Tools to automatically generate useful devcards from view specs.
 * Devcards would only show one example, Boo!
 * This library includes a wrapper to make the devcard generators interactive.  Yay!
 * Specifying a devcard for every function is haaard!  Boo!
-* This library includes a helper to generate devcards for all spec fns in a namespace.  Yay!
+* This library (will) include a helper to generate devcards for all spec fns in a namespace.  Yay!
 * [insert next pain point]... [boo]
 * [contribute new feature]... [yay]
 
