@@ -1,4 +1,4 @@
-(defproject devcards-vs-clojure-spec "0.1.0-SNAPSHOT"
+(defproject devcards-vs-clojure-spec "0.1"
   :description "Use interesting generated data on your devcards."
   :url "https://github.com/olivergeorge/devcards-vs-clojure-spec"
   :license {:name "Eclipse Public License"
