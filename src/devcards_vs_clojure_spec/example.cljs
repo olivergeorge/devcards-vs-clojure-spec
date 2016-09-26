@@ -12,12 +12,13 @@
    (my-table (distinct (mapcat keys rows)) rows))
   ([ks rows]
    (sab/html
-     [:table.table
-      [:thead [:tr (for [k ks]
-                     [:th (name k)])]]
-      [:tbody (for [row rows]
-                [:tr (for [k ks]
-                       [:td (get row k "-")])])]])))
+     [:div.table-responsive
+      [:table.table
+       [:thead [:tr (for [k ks]
+                      [:th (name k)])]]
+       [:tbody (for [row rows]
+                 [:tr (for [k ks]
+                        [:td (get row k "-")])])]]])))
 
 (s/def ::col-key keyword?)
 (s/def ::cell-val string?)
